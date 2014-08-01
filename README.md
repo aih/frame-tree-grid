@@ -13,10 +13,10 @@ Basic client-side components include:
 
 ## Getting Started
 
-*Flask Framework*
+**Flask Framework**
 Install the python Flask framework and its dependencies by following the directions [here](http://flask.pocoo.org/docs/installation/#installation).
 
-*Bower Packages*
+**Bower Packages**
 Bower is a javascript package manager. It requires git, node and NPM. You will want to install those, and then Bower, following the instructions [here](http://bower.io/).
 
 **Grunt build**
