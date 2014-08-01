@@ -33,7 +33,7 @@ module.exports = function(grunt) {
                     return '<link rel="stylesheet" href="static/'+ block.dest + '">';
                 },
                 js: function(block){
-                    return '<script src="static/'+ block.dest + '">';
+                    return '<script type="text/javascript" src="static/'+ block.dest + '"></script>';
                 }
             }
         }
