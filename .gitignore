@@ -1,3 +1,10 @@
+*.swo
+*.swp
+
+#Grunt processing files
+.tmp
+node_modules
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -6,6 +13,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+localsettings.py
 .Python
 env/
 bin/
