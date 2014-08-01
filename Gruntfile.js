@@ -27,7 +27,15 @@ module.exports = function(grunt) {
     usemin: {
         html: 'templates/index.html',
         options: {
-            assetDirs: ["static/js","static/css"]
+            assetDirs: ["static/js","static/css"],
+            blockReplacements: {
+                css: function(block){
+                    return '<link rel="stylesheet" href="static/'+ block.dest + '">';
+                },
+                js: function(block){
+                    return '<script src="static/'+ block.dest + '">';
+                }
+            }
         }
     },
     concat: {
