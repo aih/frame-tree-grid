@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="" />
+        <meta name="author" content="Ari Hershowitz" />
+        <!-- Bootstrap compatibility -->
+        <title></title>
+    <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
+<link rel="stylesheet" href="static/css/packed.css">
+    <link rel="stylesheet" href="static/css/app.css" media="screen"/>
+    </head>
+    <body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Frame: A Simple App Framework</a>
+        </div><!--/.navbar-header -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#about">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Version:&#160;&#160;{{versionnumber}}</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.navbar .container -->
+  </div>
+  {% raw %}
+  <div class="container ng-cloak" style="padding-top: 48px;" ng-app="myApp" ng-cloak >
+      <div style="margin-top: 30px" ng-controller="rootController">
+          <div class="row container" ng-controller="DemoFileUploadController" data-file-upload="options">
+              <h4>FileUpload Demo</h4>
+              <!-- The file upload form used as target for the file upload widget -->
+              <form id="fileupload" enctype="multipart/form-data" data-ng-controller="DemoFileUploadController" data-file-upload="options" >
+                  <div style="height: 130px;" class="row fileupload-buttonbar">
+                      <div class="col-md-5">
+                          <!-- The fileinput-button span is used to style the file input field as button -->
+                          <span class="btn btn-success fileinput-button" ng-class="{disabled: disabled}">
+                              <i class="glyphicon glyphicon-plus"></i>
+                              <span>Add files...</span>
+                              <input type="file" name="files[]" multiple ng-disabled="disabled">
+                          </span>
+                          <button type="button" class="btn btn-primary start" data-ng-click="submit()">
+                              <i class="glyphicon glyphicon-upload"></i>
+                              <span>Start upload</span>
+                          </button>
+                          <button type="button" class="btn btn-warning cancel" data-ng-click="cancel()">
+                              <i class="glyphicon glyphicon-ban-circle"></i>
+                              <span>Cancel upload</span>
+                          </button>
+                          <!-- The global file processing state -->
+                          <span class="fileupload-process"></span>
+                      </div>
+                      <div class="col-md-5" style="height:130px; overflow-y:auto;">
+                          <table  class="table table-striped files ng-cloak" ng-show="queue.length>0">
+                              <tr >
+                                  <th>Name</th>
+                                  <th>Size</th>
+                                  <th>Remove?</th>
+                              </tr>
+                              <tbody >
+                              <tr data-ng-repeat="file in queue track by $index" >
+                                  <td><span >{{file.name}}</span></td>
+                                  <td><span class="size">{{file.size | formatFileSize}}</span></td>
+                                  <td>
+                                      <span style="cursor: pointer;" data-ng-controller="FileDestroyController" data-ng-click="file.$destroy()">
+                                          <i class="glyphicon glyphicon-remove"></i>
+                                      </span>
+                                  </td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div> <!-- fileupload-buttonbar -->
+             </form>
+         </div>
+         <div class="row container" ng-controller="storeTextController">
+              <h4>LocalForage, Xeditable and Alertify Demo</h4>
+              <form ng-submit="store(inputText)" >
+                  <input type="text" name="input" class="input-sm" ng-model="inputText" >
+                  <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
+              </form>
+                  <a href="#" editable-text="storedText">{{storedText || "Click here to edit"}}</a>
+              <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
+              <div ng-controller="typeaheadDemoController">
+                  Typeahead numbers:
+                  <input class='typeahead' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectedNumber">
+              </div>
+          </div>
+      </div>
+  </div>
+  {% endraw %}
+</body>
+<script type="text/javascript" src="static/js/packed.min.js"></script>
+<script type="text/javascript" src="static/js/app.js"></script>
+</html>
