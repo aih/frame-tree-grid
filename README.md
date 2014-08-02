@@ -14,6 +14,8 @@ Basic client-side components include:
 *    angular-localForage (localForage directive for angularjs)
 *    fileUpload jQuery extension (cross-browser file upload API)
 *    alertify.js (cross-browser notifications)
+*    xeditable (click to edit text)
+*    typeahead
 
 ## Getting Started
 
