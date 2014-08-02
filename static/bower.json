@@ -1,0 +1,32 @@
+{
+  "name": "frame",
+  "version": "0.0.0",
+  "homepage": "https://github.com/aih/frame",
+  "authors": [
+    "aih <aih@tabulaw.com>"
+  ],
+  "description": "Simple app framework",
+  "keywords": [
+    "javascript",
+    "framework"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "lodash": "~2.4.1",
+    "angular": "~1.2.21",
+    "bootstrap": "~3.2.0",
+    "alertify.js": "~0.3.11",
+    "jquery-file-upload": "~9.7.0",
+    "angular-localForage": "~0.2.9",
+    "angular-xeditable": "~0.1.8"
+  }
+}
