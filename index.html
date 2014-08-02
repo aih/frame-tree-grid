@@ -8,11 +8,7 @@
         <!-- Bootstrap compatibility -->
         <title></title>
     <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
-<!-- build:css(./) css/packed.css -->
-    <link rel="stylesheet" href="static/bower_components/angular-xeditable/dist/css/xeditable.css">
-    <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.core.css" media="screen">
-    <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.default.css" media="screen">
-<!-- endbuild -->
+<link rel="stylesheet" href="static/css/packed.css">
     <link rel="stylesheet" href="static/css/app.css" media="screen"/>
     </head>
     <body>
@@ -43,6 +39,9 @@
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Version:&#160;&#160;{{versionnumber}}</a></li>
           </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.navbar .container -->
@@ -102,26 +101,15 @@
                   <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
               </form>
                   <a href="#" editable-text="storedText">{{storedText || "Click here to edit"}}</a>
-              <div class="ng-cloak">Stored value: {{ storedText }}</div>
+              <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
+              <div ng-controller="typeaheadDemoController">
+                  Typeahead numbers:
+                  <input class='typeahead' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectedNumber">
+              </div>
           </div>
       </div>
   </div>
 </body>
-<!-- build:js(./) js/packed.min.js -->
-    <script src="static/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="static/bower_components/lodash/dist/lodash.min.js"></script>
-    <script src="static/bower_components/angular/angular.min.js"></script>
-    <script src="static/bower_components/localforage/dist/localforage.min.js"></script>
-    <script src="static/bower_components/angular-localForage/dist/angular-localForage.min.js"></script>
-    <script src="static/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
-    <script src="static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src='static/bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js'></script>
-    <script src='static/bower_components/jquery-file-upload/js/jquery.iframe-transport.js'></script>  
-    <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
-    <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload-process.js"></script>
-    <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
-    <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload-angular.js"></script>
-    <script src="static/bower_components/alertify.js/lib/alertify.min.js"></script>
-<!-- endbuild -->
+<script type="text/javascript" src="static/js/packed.min.js"></script>
 <script type="text/javascript" src="static/js/app.js"></script>
 </html>
