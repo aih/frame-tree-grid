@@ -106,7 +106,11 @@
                   <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
               </form>
                   <a href="#" editable-text="storedText">{{storedText || "Click here to edit"}}</a>
-              <div class="ng-cloak">Stored value: {{ storedText }}</div>
+              <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
+              <div ng-controller="typeaheadDemoController">
+                  Typeahead numbers:
+                  <input class='typeahead' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectedNumber">
+              </div>
           </div>
       </div>
   </div>
@@ -127,6 +131,8 @@
     <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
     <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload-angular.js"></script>
     <script src="static/bower_components/alertify.js/lib/alertify.min.js"></script>
+    <script src="static/bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
+    <script src="static/bower_components/angular-typeahead/angular-typeahead.min.js"></script>
 <!-- endbuild -->
 <script type="text/javascript" src="static/js/app.js"></script>
 </html>

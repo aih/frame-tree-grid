@@ -102,7 +102,11 @@
                   <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
               </form>
                   <a href="#" editable-text="storedText">{{storedText || "Click here to edit"}}</a>
-              <div class="ng-cloak">Stored value: {{ storedText }}</div>
+              <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
+              <div ng-controller="typeaheadDemoController">
+                  Typeahead numbers:
+                  <input class='typeahead' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectedNumber">
+              </div>
           </div>
       </div>
   </div>

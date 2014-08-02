@@ -12,9 +12,13 @@ module.exports = function(grunt) {
       ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
     // Task configuration.
     copy: {
-        main: {
+        pre: {
             src: 'templates/index-grunt-template.html',
             dest: 'templates/index.html'
+        },
+        post: {
+            src: 'templates/index.html',
+            dest: 'index.html'
         }
     },
     useminPrepare: {
@@ -120,6 +124,6 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['qunit','jshint']);
 
   // Build task.
-  grunt.registerTask('build', ['copy', 'useminPrepare', 'concat:generated', 'cssmin:generated', 'uglify:generated', 'filerev', 'usemin']);
+  grunt.registerTask('build', ['copy:pre', 'useminPrepare', 'concat:generated', 'cssmin:generated', 'uglify:generated', 'filerev', 'usemin', 'copy:post']);
 
 };
