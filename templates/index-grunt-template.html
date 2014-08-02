@@ -7,23 +7,80 @@
         <meta name="author" content="Ari Hershowitz" />
         <!-- Bootstrap compatibility -->
         <title></title>
-<!-- build:css(static) css/packed.css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" />
-    <link rel="stylesheet" href="bower_components/alertify.js/themes/alertify.core.css" media="screen"/>
-    <link rel="stylesheet" href="bower_components/alertify.js/themes/alertify.default.css" media="screen"/>
+<!-- build:css(./) css/packed.css -->
+    <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" />
+    <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.core.css" media="screen"/>
+    <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.default.css" media="screen"/>
 <!-- endbuild -->
+
     </head>
     <body>
-        <h1>Frame: A Simple App Framework</h1>
-    </body>
-<!-- build:js(static) js/packed.min.js -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/lodash/dist/lodash.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/jquery-file-upload/jquery.fileupload.js"></script>
-    <script src="bower_components/jquery-file-upload/jquery.fileupload-process.js"></script>
-    <script src="bower_components/jquery-file-upload/jquery.fileupload-validate.js"></script>
-    <script src="bower_components/alertify.js/lib/alertify.min.js"></script>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Frame: A Simple App Framework</a>
+        </div><!--/.navbar-header -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#about">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Version:&#160;&#160;{{versionnumber}}</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.navbar .container -->
+  </div>
+  {% raw %}
+  <div class="container ng-cloak" style="padding-top: 48px;" ng-app="myApp" ng-cloak >
+      <div style="margin-top: 30px" ng-controller="rootController">
+          <div class="row container">
+              <h4>FileUpload Demo</h4>
+              [TODO]
+          </div>
+          <div class="row container">
+              <h4>LocalForage and Alertify Demo</h4>
+              <form ng-submit="store(inputText)" >
+                  <input type="text" name="input" class="input-sm" ng-model="inputText">
+                  <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
+              </form>
+              <div class="ng-cloak">Stored value: {{ storedText }}</div>
+          </div>
+      </div>
+  </div>
+  {% endraw %}
+</body>
+<!-- build:js(./) js/packed.min.js -->
+    <script src="static/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="static/bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="static/bower_components/angular/angular.min.js"></script>
+    <script src="static/bower_components/localforage/dist/localforage.min.js"></script>
+    <script src="static/bower_components/angular-localForage/dist/angular-localForage.min.js"></script>
+    <script src="static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src='static/bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js'></script>
+    <script src='static/bower_components/jquery-file-upload/js/jquery.iframe-transport.js'></script>  
+    <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload.js"></script>
+    <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
+    <script src="static/bower_components/alertify.js/lib/alertify.min.js"></script>
 <!-- endbuild -->
+<script type="text/javascript" src="static/js/myapp.js"></script>
 </html>

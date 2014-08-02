@@ -8,5 +8,7 @@ Basic client-side components include:
 *    jQuery
 *    lodash
 *    angularjs
+*    localForage (for asynchronous browser storage)
+*    angular-localForage (localForage directive for angularjs)
 *    fileUpload jQuery extension (cross-browser file upload API)
 *    alertify.js (cross-browser notifications)

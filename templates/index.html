@@ -8,9 +8,62 @@
         <!-- Bootstrap compatibility -->
         <title></title>
 <link rel="stylesheet" href="static/css/packed.css">
+
     </head>
     <body>
-        <h1>Frame: A Simple App Framework</h1>
-    </body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Frame: A Simple App Framework</a>
+        </div><!--/.navbar-header -->
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#about">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Version:&#160;&#160;{{versionnumber}}</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.navbar .container -->
+  </div>
+  {% raw %}
+  <div class="container ng-cloak" style="padding-top: 48px;" ng-app="myApp" ng-cloak >
+      <div style="margin-top: 30px" ng-controller="rootController">
+          <div class="row container">
+              <h4>FileUpload Demo</h4>
+              [TODO]
+          </div>
+          <div class="row container">
+              <h4>LocalForage and Alertify Demo</h4>
+              <form ng-submit="store(inputText)" >
+                  <input type="text" name="input" class="input-sm" ng-model="inputText">
+                  <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
+              </form>
+              <div class="ng-cloak">Stored value: {{ storedText }}</div>
+          </div>
+      </div>
+  </div>
+  {% endraw %}
+</body>
 <script type="text/javascript" src="static/js/packed.min.js"></script>
+<script type="text/javascript" src="static/js/myapp.js"></script>
 </html>

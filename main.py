@@ -17,8 +17,13 @@ versionnumber = app.config['VERSION']
 
 
 @app.route('/')
-def search():
+def index():
     resp = make_response(render_template('index.html', versionnumber=versionnumber))
+    return resp
+
+@app.route('/test')
+def indextest():
+    resp = make_response(render_template('index-grunt-template.html', versionnumber=versionnumber))
     return resp
 
 if __name__ == '__main__':
