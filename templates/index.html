@@ -7,7 +7,7 @@
         <meta name="author" content="Ari Hershowitz" />
         <!-- Bootstrap compatibility -->
         <title></title>
-    <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" />
+    <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" href="static/css/packed.css">
     <link rel="stylesheet" href="static/css/app.css" media="screen"/>
     </head>
@@ -96,11 +96,12 @@
              </form>
          </div>
          <div class="row container" ng-controller="storeTextController">
-              <h4>LocalForage and Alertify Demo</h4>
+              <h4>LocalForage, Xeditable and Alertify Demo</h4>
               <form ng-submit="store(inputText)" >
-                  <input type="text" name="input" class="input-sm" ng-model="inputText">
+                  <input type="text" name="input" class="input-sm" ng-model="inputText" >
                   <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
               </form>
+                  <a href="#" editable-text="storedText">{{storedText || "Click here to edit"}}</a>
               <div class="ng-cloak">Stored value: {{ storedText }}</div>
           </div>
       </div>

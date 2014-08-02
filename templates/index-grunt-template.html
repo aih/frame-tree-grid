@@ -7,10 +7,11 @@
         <meta name="author" content="Ari Hershowitz" />
         <!-- Bootstrap compatibility -->
         <title></title>
-    <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" />
+    <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
 <!-- build:css(./) css/packed.css -->
-    <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.core.css" media="screen"/>
-    <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.default.css" media="screen"/>
+    <link rel="stylesheet" href="static/bower_components/angular-xeditable/dist/css/xeditable.css">
+    <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.core.css" media="screen">
+    <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.default.css" media="screen">
 <!-- endbuild -->
     <link rel="stylesheet" href="static/css/app.css" media="screen"/>
     </head>
@@ -99,11 +100,12 @@
              </form>
          </div>
          <div class="row container" ng-controller="storeTextController">
-              <h4>LocalForage and Alertify Demo</h4>
+              <h4>LocalForage, Xeditable and Alertify Demo</h4>
               <form ng-submit="store(inputText)" >
-                  <input type="text" name="input" class="input-sm" ng-model="inputText">
+                  <input type="text" name="input" class="input-sm" ng-model="inputText" >
                   <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
               </form>
+                  <a href="#" editable-text="storedText">{{storedText || "Click here to edit"}}</a>
               <div class="ng-cloak">Stored value: {{ storedText }}</div>
           </div>
       </div>
@@ -116,6 +118,7 @@
     <script src="static/bower_components/angular/angular.min.js"></script>
     <script src="static/bower_components/localforage/dist/localforage.min.js"></script>
     <script src="static/bower_components/angular-localForage/dist/angular-localForage.min.js"></script>
+    <script src="static/bower_components/angular-xeditable/dist/js/xeditable.min.js"></script>
     <script src="static/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src='static/bower_components/jquery-file-upload/js/vendor/jquery.ui.widget.js'></script>
     <script src='static/bower_components/jquery-file-upload/js/jquery.iframe-transport.js'></script>  
