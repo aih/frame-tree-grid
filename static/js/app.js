@@ -29,8 +29,8 @@ myApp.controller('rootController', ['$scope', function ($scope) {
 }]);
 
 myApp.controller('storeTextController', ['$scope', '$localForage', function ($scope, $localForage) {
-      // Start fresh
-    $localForage.clearAll();
+    // Start fresh
+    //$localForage.clearAll();
     $scope.store = function(data) {
         $localForage.setItem('storedText', data).then(function(data) {
             $scope.inputText = '';
