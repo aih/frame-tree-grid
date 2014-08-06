@@ -4,7 +4,9 @@ myApp.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 });
 
-var url = 'test.com';
+var url = 'upload';
+var testXML = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="\billres.xsl" type="text/xsl"?><!DOCTYPE amendment-doc PUBLIC "-//US Congress//DTDs/amend v2.8 20020720//EN" "http://xml.house.gov/amend.dtd"><amendment-doc amend-stage="proposed" amend-type="house-amendment" amend-degree="first"> </amendment-doc>';
+
 
 myApp.config(['$locationProvider', '$localForageProvider', '$httpProvider', 'fileUploadProvider', function ($locationProvider, $localForageProvider, $httpProvider, fileUploadProvider) {
     
@@ -53,14 +55,8 @@ myApp.controller('DemoFileUploadController', [ '$scope', '$http', '$filter', '$w
         url: url
     };
     $scope.loadingFiles = true;
-    $http.get(url)
-    .then(function (response) {
-                                $scope.loadingFiles = false;
-                                $scope.queue = response.data.files || [];
-                            },
-                            function () {
-                                $scope.loadingFiles = false;
-                            });
+   $scope.formBlob = new Blob([testXML], {type: 'text/xml'});
+    
 }]);
 
 myApp.controller('FileDestroyController', [
