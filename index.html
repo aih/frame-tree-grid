@@ -52,7 +52,7 @@
           <div class="row container" ng-controller="DemoFileUploadController" data-file-upload="options" ng-cloak>
               <h4>FileUpload Demo</h4>
               <!-- The file upload form used as target for the file upload widget -->
-              <form id="fileupload" enctype="multipart/form-data" data-ng-controller="DemoFileUploadController" data-file-upload="options" ng-cloak >
+              <form id="fileupload" enctype="multipart/form-data" >
                   <div style="height: 130px;" class="row fileupload-buttonbar">
                       <div class="col-md-5">
                           <!-- The fileinput-button span is used to style the file input field as button -->
@@ -94,20 +94,22 @@
                       </div>
                   </div> <!-- fileupload-buttonbar -->
              </form>
-         </div>
-         <div class="row container" ng-controller="storeTextController" ng-cloak>
+             <div class="row container" ng-controller="storeTextController" ng-cloak>
               <h4>LocalForage, Xeditable and Alertify Demo</h4>
               <form ng-submit="store(inputText)" >
                   <input type="text" name="input" class="input-sm" ng-model="inputText" >
                   <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
               </form>
                   <a href="#" editable-text="storedText">{{storedText || "Click here to edit"}}</a>
+                  <div>Filenames: <span data-ng-repeat="file in queue track by $index" editable-text="newName{{$index}}">{{file.name}}, &#160;</span>
+                  </div>
               <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
               <div ng-controller="typeaheadDemoController">
                   Typeahead numbers:
                   <input class='typeahead' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectedNumber">
               </div>
           </div>
+         </div>
       </div>
   </div>
   {% endraw %}

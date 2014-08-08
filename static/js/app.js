@@ -56,7 +56,8 @@ myApp.controller('DemoFileUploadController', [ '$scope', '$http', '$filter', '$w
     };
     $scope.loadingFiles = true;
    $scope.formBlob = new Blob([testXML], {type: 'text/xml'});
-    
+   $scope.getNames = function(fileList){return _.map(fileList, function(file){return file.name;});};
+
 }]);
 
 myApp.controller('FileDestroyController', [
