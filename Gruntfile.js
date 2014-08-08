@@ -1,4 +1,6 @@
 /*global module:false*/
+var pkgJson = require('./package.json');
+var version = pkgJson.version;
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -33,6 +35,9 @@ module.exports = function(grunt) {
         options: {
             assetDirs: ["static/js","static/css"],
             blockReplacements: {
+                version: function(block){
+                    return '<li><a href="#">Version:&#160;&#160;'+version+'</a></li>';
+                },
                 css: function(block){
                     return '<link rel="stylesheet" href="static/'+ block.dest + '">';
                 },
