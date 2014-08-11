@@ -1,4 +1,5 @@
-var myApp = angular.module('myApp', ['ng','LocalForageModule', 'blueimp.fileupload', 'xeditable', 'ui.select2']);
+(function(){
+    var myApp = angular.module('myApp', ['ng','LocalForageModule', 'blueimp.fileupload', 'xeditable', 'ui.select2']);
 
 myApp.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
@@ -104,3 +105,4 @@ myApp.controller('typeaheadDemoController', ['$scope', function($scope){
    
     }
 ]);
+})();
