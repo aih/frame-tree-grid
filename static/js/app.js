@@ -96,6 +96,11 @@ myApp.controller('typeaheadDemoController', ['$scope', function($scope){
  $scope.select2Options = {
         allowClear:true
     }; 
+ $scope.$watch(function(){if($scope.select2){return $scope.select2;}}, function(){
+     if($scope.queue.length>0){
+     $scope.store($scope.queue[$scope.select2].name);
+     }
+ });
    
     }
 ]);
