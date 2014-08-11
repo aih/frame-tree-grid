@@ -48,6 +48,7 @@
         </div><!--/.nav-collapse -->
     </div><!--/.navbar .container -->
   </div>
+  {% raw %}
   <div class="container ng-cloak" style="padding-top: 48px;" ng-app="myApp" ng-cloak >
       <div style="margin-top: 30px" ng-controller="rootController" ng-cloak>
           <div class="row container" ng-controller="DemoFileUploadController" data-file-upload="options" ng-cloak>
@@ -97,6 +98,12 @@
              </form>
              <div class="row container" ng-controller="storeTextController" ng-cloak>
               <h4>LocalForage, Xeditable, Alertify and Select2 Demos</h4>
+              <label>Three ways to store data:</label>
+              <ul>
+                  <li>Type in the text input and save</li>
+                  <li>Click on the underlined text and edit</li>
+                  <li>Select a filename from files selected with the buttons above</li>
+              </ul>
               <form ng-submit="store(inputText)" >
                   <input type="text" name="input" class="input-sm" ng-model="inputText" >
                   <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
@@ -104,8 +111,8 @@
                   <a href="#" editable-text="storedText">{{storedText || "Click here to edit"}}</a>
               <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
               <div ng-controller="typeaheadDemoController">
-                  Typeahead filenames:
-                  <select ui-select2="select2Options" ng-model="select2" data-placeholder="Load some files, then pick a filename">
+                  Select filename to store:
+                  <select ui-select2="selec2Options" ng-model="select2" data-placeholder="Load some files, then pick a filename">
                       <option value=""></option>
                       <option ng-repeat="file in queue" value="{{$index}}">{{file.name}}</option>
                   </select>
@@ -114,6 +121,7 @@
          </div>
       </div>
   </div>
+  {% endraw %}
 </body>
 <script type="text/javascript" src="static/js/app.js"></script>
 </html>
