@@ -93,7 +93,9 @@ myApp.controller('FileDestroyController', [
         ]);
 
 myApp.controller('typeaheadDemoController', ['$scope', function($scope){
-  
+ $scope.select2Options = {
+        allowClear:true
+    }; 
   $scope.numbers =  [
       { value: '1', text: 'one' },
       { value: '2', text: 'two' },
