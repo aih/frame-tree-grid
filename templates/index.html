@@ -97,20 +97,18 @@
                   </div> <!-- fileupload-buttonbar -->
              </form>
              <div class="row container" ng-controller="storeTextController" ng-cloak>
-              <h4>LocalForage, Xeditable and Alertify Demo</h4>
+              <h4>LocalForage, Xeditable, Alertify and Select2 Demos</h4>
               <form ng-submit="store(inputText)" >
                   <input type="text" name="input" class="input-sm" ng-model="inputText" >
                   <input type="submit" class="btn btn-sm btn-primary" role="button" value="Save"/>
               </form>
                   <a href="#" editable-text="storedText">{{storedText || "Click here to edit"}}</a>
-                  <div>Filenames: <span data-ng-repeat="file in queue track by $index" editable-text="newName{{$index}}">{{file.name}}, &#160;</span>
-                  </div>
               <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
               <div ng-controller="typeaheadDemoController">
-                  Typeahead numbers:
-                  <select ui-select2 ng-model="select2" data-placeholder="Pick a number">
+                  Typeahead filenames:
+                  <select ui-select2="selec2Options" ng-model="select2" data-placeholder="Load some files, then pick a filename">
                       <option value=""></option>
-                      <option ng-repeat="number in numbers" value="{{number.value}}">{{number.text}}</option>
+                      <option ng-repeat="file in queue" value="{{$index}}">{{file.name}}</option>
                   </select>
               </div>
           </div>
