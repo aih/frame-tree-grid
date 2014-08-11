@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ng','LocalForageModule', 'blueimp.fileupload', 'xeditable', 'siyfion.sfTypeahead']);
+var myApp = angular.module('myApp', ['ng','LocalForageModule', 'blueimp.fileupload', 'xeditable', 'ui.select2']);
 
 myApp.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
@@ -93,58 +93,19 @@ myApp.controller('FileDestroyController', [
         ]);
 
 myApp.controller('typeaheadDemoController', ['$scope', function($scope){
-    $scope.selectedNumber = null;
   
-  // instantiate the bloodhound suggestion engine
-  var numbers = new Bloodhound({
-    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.num); },
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    local: [
-      { num: 'one' },
-      { num: 'two' },
-      { num: 'three' },
-      { num: 'four' },
-      { num: 'five' },
-      { num: 'six' },
-      { num: 'seven' },
-      { num: 'eight' },
-      { num: 'nine' },
-      { num: 'ten' }
-    ]
-  });
+  $scope.numbers =  [
+      { value: '1', text: 'one' },
+      { value: '2', text: 'two' },
+      { value: '3', text: 'three' },
+      { value: '4', text: 'four' },
+      { value: '5', text: 'five' },
+      { value: '6', text: 'six' },
+      { value: '7', text: 'seven' },
+      { value: '8', text: 'eight' },
+      { value: '9', text: 'nine' },
+      { value: '10', text: 'ten' }
+    ];
    
-  // initialize the bloodhound suggestion engine
-  numbers.initialize();
-  
-  $scope.numbersDataset = {
-    displayKey: 'num',
-    source: numbers.ttAdapter()
-  };
-  
-  $scope.addValue = function () {
-    numbers.add({
-      num: 'twenty'
-    });
-  };
-  
-  $scope.setValue = function () {
-    $scope.selectedNumber = { num: 'seven' };
-  };
-  
-  $scope.clearValue = function () {
-    $scope.selectedNumber = null;
-  };
-
-  
-  // Typeahead options object
-  $scope.exampleOptions = {
-    highlight: true
-  };
-  
-  $scope.exampleOptionsNonEditable = {
-    highlight: true,
-    editable: false // the new feature
-  }; 
-  
     }
 ]);

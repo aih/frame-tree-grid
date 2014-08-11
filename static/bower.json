@@ -28,7 +28,7 @@
     "jquery-file-upload": "~9.7.0",
     "angular-localForage": "~0.2.9",
     "angular-xeditable": "~0.1.8",
-    "angular-typeahead": "~0.2.1"
+    "angular-ui-select2": "~0.0.5"
   },
   "resolutions": {
     "jquery": "~2.1.1"

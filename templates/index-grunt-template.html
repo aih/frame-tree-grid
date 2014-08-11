@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="static/bower_components/angular-xeditable/dist/css/xeditable.css">
     <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.core.css" media="screen">
     <link rel="stylesheet" href="static/bower_components/alertify.js/themes/alertify.default.css" media="screen">
+    <link rel="stylesheet" href="static/bower_components/select2/select2.css">
 <!-- endbuild -->
     <link rel="stylesheet" href="static/css/app.css" media="screen"/>
 <!-- build:js(./) js/packed.min.js -->
@@ -29,8 +30,8 @@
     <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
     <script src="static/bower_components/jquery-file-upload/js/jquery.fileupload-angular.js"></script>
     <script src="static/bower_components/alertify.js/lib/alertify.min.js"></script>
-    <script src="static/bower_components/typeahead.js/dist/typeahead.bundle.min.js"></script>
-    <script src="static/bower_components/angular-typeahead/angular-typeahead.min.js"></script>
+    <script src="static/bower_components/select2/select2.js"></script>
+    <script src="static/bower_components/angular-ui-select2/src/select2.js"></script>
 <!-- endbuild -->
     </head>
     <body>
@@ -131,7 +132,10 @@
               <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
               <div ng-controller="typeaheadDemoController">
                   Typeahead numbers:
-                  <input class='typeahead' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectedNumber">
+                  <select ui-select2 ng-model="select2" data-placeholder="Pick a number">
+                      <option value=""></option>
+                      <option ng-repeat="number in numbers" value="{{number.value}}">{{number.text}}</option>
+                  </select>
               </div>
           </div>
          </div>
