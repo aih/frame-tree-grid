@@ -105,7 +105,7 @@
               <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
               <div ng-controller="typeaheadDemoController">
                   Typeahead filenames:
-                  <select ui-select2="selec2Options" ng-model="select2" data-placeholder="Load some files, then pick a filename">
+                  <select ui-select2="select2Options" ng-model="select2" data-placeholder="Load some files, then pick a filename">
                       <option value=""></option>
                       <option ng-repeat="file in queue" value="{{$index}}">{{file.name}}</option>
                   </select>
