@@ -107,7 +107,10 @@
               <div class="ng-cloak">Stored value: {{ storedText ||'none' }}</div>
               <div ng-controller="typeaheadDemoController">
                   Typeahead numbers:
-                  <input class='typeahead' type="text" sf-typeahead options="exampleOptions" datasets="numbersDataset" ng-model="selectedNumber">
+                  <select ui-select2 ng-model="select2" data-placeholder="Pick a number">
+                      <option value=""></option>
+                      <option ng-repeat="number in numbers" value="{{number.value}}">{{number.text}}</option>
+                  </select>
               </div>
           </div>
          </div>
