@@ -23,6 +23,20 @@ module.exports = function(grunt) {
             dest: 'index.html'
         }
     },
+    replace: {
+        noraw: {
+            src: ['index.html'],
+            overwrite: true,
+            replacements: [{
+                from:'{% raw %}',
+                to:''
+            },
+            {
+                from:'{% endraw %}',
+                to: ''
+            }]
+        }
+    },
     useminPrepare: {
         html: 'templates/index.html',
         options: {
@@ -123,12 +137,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-text-replace');
 
 
   // Testing task
   grunt.registerTask('test', ['qunit','jshint']);
 
   // Build task.
-  grunt.registerTask('build', ['copy:pre', 'useminPrepare', 'concat:generated', 'cssmin:generated', 'uglify:generated', 'filerev', 'usemin', 'copy:post']);
+  grunt.registerTask('build', ['copy:pre', 'useminPrepare', 'concat:generated', 'cssmin:generated', 'uglify:generated', 'filerev', 'usemin', 'copy:post', 'replace:noraw']);
 
 };
