@@ -1,5 +1,5 @@
 (function(){
-    var ftg = angular.module('ftg', ['ng','LocalForageModule', 'blueimp.fileupload', 'xeditable', 'ui.select2','ngtreeRepeat' ]);
+    var ftg = angular.module('ftg', ['ng','LocalForageModule', 'blueimp.fileupload', 'xeditable', 'ui.select2','treeControl' ]);
 
 ftg.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
@@ -30,6 +30,35 @@ ftg.config(['$locationProvider', '$localForageProvider', '$httpProvider', 'fileU
 ftg.controller('rootController', ['$scope', function ($scope) {
     $scope.branches = [{'name':'rootNode', 'leaves':[{'name':'childNode1'}, {'name': 'childNode2'}, {'name': 'childNode3'}]},{'name':'rootNode2', 'leaves':[{'name':'otherChild1'}, {'name':'otherChild2'}, {'name':'otherChild3'}]}
     ];
+
+    $scope.treeOptions = {
+    nodeChildren: "children",
+    dirSelectable: true,
+    injectClasses: {
+        ul: "a1",
+        li: "a2",
+        liSelected: "a7",
+        iExpanded: "a3",
+        iCollapsed: "a4",
+        iLeaf: "a5",
+        label: "a6",
+        labelSelected: "a8"
+    }
+}
+$scope.dataForTheTree =
+[
+    { "name" : "rootNode",  "children" : [
+        { "name" : "childNode1", "children" : [] },
+        { "name" : "childNode2",  "children" : [
+            { "name" : "grandChild1",  "children" : [
+                { "name" : "greatGrandChild1",  "children" : [] },
+                { "name" : "greatGrandChild2",  "children" : [] }
+            ]}
+        ]}
+    ]},
+    { "name" : "rootNode2",  "children" : [] },
+    { "name" : "rootNode3", "children" : [] }
+];
 
 }]);
 

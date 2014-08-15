@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="static/bower_components/select2/select2.css">
 <!-- endbuild -->
     <link rel="stylesheet" href="static/bower_components/jstree/dist/themes/default/style.min.css">
+    <link rel="stylesheet" href="static/bower_components/angular-tree-control/css/tree-control.css">
+    <link rel="stylesheet" href="static/bower_components/angular-tree-control/css/tree-control-attribute.css">
     <link rel="stylesheet" href="static/css/app.css" media="screen"/>
 <!-- build:js(./) js/packed.min.js -->
     <script src="static/bower_components/jquery/dist/jquery.min.js"></script>
@@ -35,6 +37,7 @@
     <script src="static/bower_components/select2/select2.js"></script>
     <script src="static/bower_components/angular-ui-select2/src/select2.js"></script>
     <script src="static/bower_components/jstree/dist/jstree.min.js"></script>
+    <script src="static/bower_components/angular-tree-control/angular-tree-control.js"></script>
 <!-- endbuild -->
     </head>
     <body>
@@ -88,6 +91,18 @@
                             </ul>
                           </li>
                       </ul>
+                  </div>
+              </div>
+              <div class="col-md-3" style="height: 100px; max-height: 100px; overflow-y: auto;">
+                  <div id="treeControl_demo">
+                      <div treecontrol class="tree-classic"
+                          tree-model="dataForTheTree"
+                          options="treeOptions"
+                          on-selection="showSelected(node)"
+                          selected-node="node1">
+                          {{node.name}}
+                      </div>
+
                   </div>
               </div>
           </div>
