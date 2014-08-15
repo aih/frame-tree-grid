@@ -1,11 +1,11 @@
 {
-  "name": "frameapp",
+  "name": "frametreegridapp",
   "version": "0.0.0",
-  "description": "A simple javascript framework served by flask.py",
+  "description": "A slightly fancier javascript framework, served by flask.py",
   "author": "Ari Hershowitz <aih@tabulaw.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/aih/frame.git"
+    "url": "git://github.com/aih/frame-tree-grid.git"
   },
   "engines": {
     "node": ">= 0.10.0"

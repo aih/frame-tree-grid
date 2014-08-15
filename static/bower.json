@@ -28,7 +28,8 @@
     "jquery-file-upload": "~9.7.0",
     "angular-localForage": "~0.2.9",
     "angular-xeditable": "~0.1.8",
-    "angular-ui-select2": "~0.0.5"
+    "angular-ui-select2": "~0.0.5",
+    "jstree": "~3.0.3"
   },
   "resolutions": {
     "jquery": "~2.1.1"

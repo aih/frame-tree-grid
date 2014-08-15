@@ -9,11 +9,13 @@
         <title></title>
     <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" href="static/css/packed.css">
+    <link rel="stylesheet" href="static/bower_components/jstree/dist/themes/default/style.min.css">
+    <link rel="stylesheet" href="static/bower_components/angular-treeRepeat/app/css/app.css">
     <link rel="stylesheet" href="static/css/app.css" media="screen"/>
 <script type="text/javascript" src="static/js/packed.min.js"></script>
     </head>
     <body>
-    {% raw %}
+    
     <a href="https://github.com/aih/frame"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:2000" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     <!-- Fixed navbar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -25,7 +27,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Frame: A Simple App Framework</a>
+          <a class="navbar-brand" href="#">FrameTreeGrid: A Decorated Framework</a>
         </div><!--/.navbar-header -->
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -49,8 +51,38 @@
         </div><!--/.nav-collapse -->
     </div><!--/.navbar .container -->
   </div>
-  <div class="container ng-cloak" style="padding-top: 48px;" ng-app="myApp" ng-cloak >
+  <div class="container ng-cloak" style="padding-top: 48px;" ng-app="ftg" ng-cloak >
       <div style="margin-top: 30px" ng-controller="rootController" ng-cloak>
+          <div class="row container">
+              <div class="col-md-3" style="height: 100px; max-height: 100px; overflow-y: auto;">
+                  <div id="jstree_ng_demo">
+                      <ul ng-repeat="branch in branches">
+                          <li>{{branch.name}}
+                            <ul ng-repeat="leaf in branch.leaves">
+                                <li>{{leaf.name}}</li>
+                            </ul>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-md-3" style="height:100px; max-height: 100px; overflow-y=auto;">
+                  <ul frang-tree>
+  <li frang-tree-repeat="node in treeData">
+      <div><span class="icon"
+                 ng-class="{collapsed: node.collapsed, expanded: !node.collapsed}"
+                 ng-show="node.children && node.children.length > 0"
+                 ng-click="node.collapsed = !node.collapsed"></span>
+           <span class="label"
+                 ng-class="{folder: node.children && node.children.length > 0}"
+                 ng-bind="node.label"
+                 ng-click="action(node)"></span>
+      </div>
+      <ul ng-if="!node.collapsed && node.children && node.children.length > 0"
+          frang-tree-insert-children="node.children"></ul>
+  </li>
+</ul>
+              </div>
+          </div>
           <div class="row container" ng-controller="DemoFileUploadController" data-file-upload="options" ng-cloak>
               <h4>FileUpload Demo</h4>
               <!-- The file upload form used as target for the file upload widget -->
@@ -121,7 +153,7 @@
          </div>
       </div>
   </div>
-  {% endraw %}
+  
 </body>
 <script type="text/javascript" src="static/js/app.js"></script>
 </html>

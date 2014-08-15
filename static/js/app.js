@@ -1,7 +1,7 @@
 (function(){
-    var myApp = angular.module('myApp', ['ng','LocalForageModule', 'blueimp.fileupload', 'xeditable', 'ui.select2']);
+    var ftg = angular.module('ftg', ['ng','LocalForageModule', 'blueimp.fileupload', 'xeditable', 'ui.select2','ngtreeRepeat' ]);
 
-myApp.run(function(editableOptions) {
+ftg.run(function(editableOptions) {
   editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
 });
 
@@ -9,12 +9,12 @@ var url = 'upload';
 var testXML = '<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="\billres.xsl" type="text/xsl"?><!DOCTYPE amendment-doc PUBLIC "-//US Congress//DTDs/amend v2.8 20020720//EN" "http://xml.house.gov/amend.dtd"><amendment-doc amend-stage="proposed" amend-type="house-amendment" amend-degree="first"> </amendment-doc>';
 
 
-myApp.config(['$locationProvider', '$localForageProvider', '$httpProvider', 'fileUploadProvider', function ($locationProvider, $localForageProvider, $httpProvider, fileUploadProvider) {
+ftg.config(['$locationProvider', '$localForageProvider', '$httpProvider', 'fileUploadProvider', function ($locationProvider, $localForageProvider, $httpProvider, fileUploadProvider) {
     
     $locationProvider.html5Mode(true);
 
     $localForageProvider.config({
-        name        : 'myApp', // name of the database and prefix for your data
+        name        : 'ftg', // name of the database and prefix for your data
         storeName   : 'storedParams', // name of the table
         description : 'some description'
     });
@@ -27,11 +27,13 @@ myApp.config(['$locationProvider', '$localForageProvider', '$httpProvider', 'fil
     
 }]);
 
-myApp.controller('rootController', ['$scope', function ($scope) {
-    $scope.words = {'first': 'this', 'second': 'that'};
+ftg.controller('rootController', ['$scope', function ($scope) {
+    $scope.branches = [{'name':'rootNode', 'leaves':[{'name':'childNode1'}, {'name': 'childNode2'}, {'name': 'childNode3'}]},{'name':'rootNode2', 'leaves':[{'name':'otherChild1'}, {'name':'otherChild2'}, {'name':'otherChild3'}]}
+    ];
+
 }]);
 
-myApp.controller('storeTextController', ['$scope', '$localForage', function ($scope, $localForage) {
+ftg.controller('storeTextController', ['$scope', '$localForage', function ($scope, $localForage) {
     // Start fresh
     //$localForage.clearAll();
     $scope.store = function(data) {
@@ -51,7 +53,7 @@ myApp.controller('storeTextController', ['$scope', '$localForage', function ($sc
     });
 }]);
 
-myApp.controller('DemoFileUploadController', [ '$scope', '$http', '$filter', '$window', function ($scope, $http) {
+ftg.controller('DemoFileUploadController', [ '$scope', '$http', '$filter', '$window', function ($scope, $http) {
     $scope.options = {
         url: url
     };
@@ -61,7 +63,7 @@ myApp.controller('DemoFileUploadController', [ '$scope', '$http', '$filter', '$w
 
 }]);
 
-myApp.controller('FileDestroyController', [
+ftg.controller('FileDestroyController', [
             '$scope', '$http',
             function ($scope, $http) {
                 var file = $scope.file,
@@ -93,7 +95,7 @@ myApp.controller('FileDestroyController', [
             }
         ]);
 
-myApp.controller('typeaheadDemoController', ['$scope', function($scope){
+ftg.controller('typeaheadDemoController', ['$scope', function($scope){
  $scope.select2Options = {
         allowClear:true
     }; 
@@ -105,4 +107,42 @@ myApp.controller('typeaheadDemoController', ['$scope', function($scope){
    
     }
 ]);
+
+/*====================
+ * Non-Angular scripts
+ */
+
+$(function () { $('#jstree_ng_demo').jstree({
+"core" : {
+    "animation" : 0,
+    "check_callback" : true,
+    "themes" : { "stripes" : true }
+  },
+  "types" : {
+    "#" : {
+      "max_children" : 1, 
+      "max_depth" : 4, 
+      "valid_children" : ["root"]
+    },
+    "root" : {
+      "icon" : "/static/3.0.3/assets/images/tree_icon.png",
+      "valid_children" : ["default"]
+    },
+    "default" : {
+      "valid_children" : ["default","file"]
+    },
+    "file" : {
+      "icon" : "glyphicon glyphicon-file",
+      "valid_children" : []
+    }
+  },
+  "plugins" : [
+    "contextmenu", "dnd", "search",
+    "state", "types", "wholerow"
+  ]
+
+});
+console.log('jQuery ready function fired');
+});
+
 })();
