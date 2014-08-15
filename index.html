@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen">
 <link rel="stylesheet" href="static/css/packed.css">
     <link rel="stylesheet" href="static/bower_components/jstree/dist/themes/default/style.min.css">
-    <link rel="stylesheet" href="static/bower_components/angular-treeRepeat/app/css/app.css">
     <link rel="stylesheet" href="static/css/app.css" media="screen"/>
 <script type="text/javascript" src="static/js/packed.min.js"></script>
     </head>
@@ -64,23 +63,6 @@
                           </li>
                       </ul>
                   </div>
-              </div>
-              <div class="col-md-3" style="height:100px; max-height: 100px; overflow-y=auto;">
-                  <ul frang-tree>
-  <li frang-tree-repeat="node in treeData">
-      <div><span class="icon"
-                 ng-class="{collapsed: node.collapsed, expanded: !node.collapsed}"
-                 ng-show="node.children && node.children.length > 0"
-                 ng-click="node.collapsed = !node.collapsed"></span>
-           <span class="label"
-                 ng-class="{folder: node.children && node.children.length > 0}"
-                 ng-bind="node.label"
-                 ng-click="action(node)"></span>
-      </div>
-      <ul ng-if="!node.collapsed && node.children && node.children.length > 0"
-          frang-tree-insert-children="node.children"></ul>
-  </li>
-</ul>
               </div>
           </div>
           <div class="row container" ng-controller="DemoFileUploadController" data-file-upload="options" ng-cloak>
